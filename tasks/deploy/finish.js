@@ -12,6 +12,7 @@ module.exports = function (gruntOrShipit) {
   function task() {
     var shipit = init(utils.getShipit(gruntOrShipit));
     shipit.emit('deployed');
+
     fetch('https://api.rollbar.com/api/1/deploy/', {
         method: 'POST', body: JSON.stringify({
       access_token: shipit.config.rollbar.api_key,
